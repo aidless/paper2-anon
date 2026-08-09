@@ -1,0 +1,58 @@
+{
+ "evidence_package": "PAPER2 evidence (Revision14)",
+ "note": "evidence_manifest.json itself is excluded from its own file listing (self-hash excluded by design).",
+ "files": {
+  "README.md": {
+   "size": 712,
+   "sha256": "ECE4877B628FD23244E37FFE6C52EE4AF6BFA68ACE3BA16CD4746FCD641B0137"
+  },
+  "arena_data_cache.zip": {
+   "size": 183922,
+   "sha256": "7F54D249AAD29ECC36BA3161341FB738A204EB70E4C1C63B75E0DA71CAC27165"
+  },
+  "analyses/p2_bound_decision_case_20260808.json": {
+   "size": 2298,
+   "sha256": "A984CE0FBD0C08BFB959FD23426D6BBE045872DB5C471C11F23BE88F9C071FF7"
+  },
+  "analyses/p2_bound_vs_heuristic_20260808.json": {
+   "size": 924,
+   "sha256": "6DFFEEE564DC26C70C0A5D1EBC19CCAAA3A1AF3DB7592825BEA515EAC96A2F78"
+  },
+  "analyses/p2_cv_sensitivity_20260808.json": {
+   "size": 3508,
+   "sha256": "B2CAA7A10C6AB84BCCAD6906CE250843DB2AF962CA772B4AD5F61BE1175F2218"
+  },
+  "analyses/p2_mle_theorem_20260808.json": {
+   "size": 6133,
+   "sha256": "74CC751215D2127AF681B1DE760B7BE0FB4754207F04659D71BB02164FA7CC7B"
+  },
+  "analyses/p2_sampling_theorem_sim_20260808.json": {
+   "size": 3219,
+   "sha256": "7146B7D5757BCCD5C419AEFBF6F271677F62B98F1CACFF2059663F10A6188EA3"
+  },
+  "scripts/p2_bound_decision_case_20260808.py": {
+   "size": 2378,
+   "sha256": "26A6BA60BCCF28CE05DAAA038082D5C249984E730A1490A30CC1CC6F496F8125"
+  },
+  "scripts/p2_bound_vs_heuristic_20260808.py": {
+   "size": 3524,
+   "sha256": "23639606C150B0D063B2BE62839188AD5BC109894C19BC956CA95E5DA745473F"
+  },
+  "scripts/p2_mle_and_theorem_coverage_20260808.py": {
+   "size": 5786,
+   "sha256": "B165864E6EAF0A20E66E9BAFBA8B06CB0B83E4069CEF80FE56750BE9FFE74364"
+  },
+  "scripts/p2_sampling_theorem_sim_20260808.json": {
+   "size": 3219,
+   "sha256": "7146B7D5757BCCD5C419AEFBF6F271677F62B98F1CACFF2059663F10A6188EA3"
+  },
+  "scripts/p2_sampling_theorem_sim_20260808.py": {
+   "size": 2823,
+   "sha256": "4C2203C203CC6D2DBA903A0881D2A228FC5FBC54461FE1676E3FAFD86E1CA99C"
+  },
+  "scripts/verify_p2_cv_sensitivity_20260808.py": {
+   "size": 4308,
+   "sha256": "4138F0D1D72EAEC3B9D8CA09D894D136236E35C8200979F50153E6F99327DCCA"
+  }
+ }
+}

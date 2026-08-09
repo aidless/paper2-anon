@@ -1,0 +1,148 @@
+{
+ "method": "CV = sd/mean of per-repetition gamma_TV (or gTV); 5-seed subsample distribution over all combinations (n<=15) or 2000 fixed-seed draws (n=30)",
+ "rows": [
+  {
+   "condition": "DS Self-Eval",
+   "archive": "mm_epc_multi_seed_ds_final.json",
+   "n": 30,
+   "full_archive_cv": 5.4772,
+   "cv5_subsample": {
+    "min": 2.2361,
+    "median": 2.2361,
+    "max": 2.2361,
+    "n_nondegenerate_subsets": 349,
+    "n_all_zero_subsets": 1651
+   }
+  },
+  {
+   "condition": "DS x Qwen (qwen eval)",
+   "archive": "mm_epc_multi_seed_final.json",
+   "n": 30,
+   "full_archive_cv": 2.3063,
+   "cv5_subsample": {
+    "min": 0.5869,
+    "median": 2.2361,
+    "max": 2.2361,
+    "n_nondegenerate_subsets": 1263,
+    "n_all_zero_subsets": 737
+   }
+  },
+  {
+   "condition": "Qwen x DS (official A)",
+   "archive": "official_A_qwen_eval_ds_exec.json",
+   "n": 5,
+   "full_archive_cv": 0.2409,
+   "cv5_subsample": {
+    "min": 0.2409,
+    "median": 0.2409,
+    "max": 0.2409,
+    "n_nondegenerate_subsets": 1,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "DS eval / Qwen exec (official B)",
+   "archive": "official_B_deepseek_eval_qwen_exec.json",
+   "n": 5,
+   "full_archive_cv": 0.3358,
+   "cv5_subsample": {
+    "min": 0.3358,
+    "median": 0.3358,
+    "max": 0.3358,
+    "n_nondegenerate_subsets": 1,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "GPT4o eval / DS exec len500 (official C)",
+   "archive": "official_C_gpt4o_eval_ds_exec_len500.json",
+   "n": 5,
+   "full_archive_cv": 0.3887,
+   "cv5_subsample": {
+    "min": 0.3887,
+    "median": 0.3887,
+    "max": 0.3887,
+    "n_nondegenerate_subsets": 1,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "GPT4o eval / Qwen exec (official D)",
+   "archive": "official_D_gpt4o_eval_qwen_exec.json",
+   "n": 5,
+   "full_archive_cv": 0.3567,
+   "cv5_subsample": {
+    "min": 0.3567,
+    "median": 0.3567,
+    "max": 0.3567,
+    "n_nondegenerate_subsets": 1,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "Ablation max",
+   "archive": "mm_epc_ablation_max.json",
+   "n": 10,
+   "full_archive_cv": 0.3661,
+   "cv5_subsample": {
+    "min": 0.145,
+    "median": 0.3553,
+    "max": 0.5108,
+    "n_nondegenerate_subsets": 252,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "Ablation no-s0",
+   "archive": "mm_epc_ablation_no_s0.json",
+   "n": 5,
+   "full_archive_cv": 0.4,
+   "cv5_subsample": {
+    "min": 0.4,
+    "median": 0.4,
+    "max": 0.4,
+    "n_nondegenerate_subsets": 1,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "Qwen37",
+   "archive": "mm_epc_qwen37_final.json",
+   "n": 8,
+   "full_archive_cv": 0.2597,
+   "cv5_subsample": {
+    "min": 0.1433,
+    "median": 0.2496,
+    "max": 0.3283,
+    "n_nondegenerate_subsets": 56,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "GPT4o replication (OLD)",
+   "archive": "mm_epc_gpt4o_replication_OLD.json",
+   "n": 8,
+   "full_archive_cv": 0.3236,
+   "cv5_subsample": {
+    "min": 0.2084,
+    "median": 0.3251,
+    "max": 0.4169,
+    "n_nondegenerate_subsets": 56,
+    "n_all_zero_subsets": 0
+   }
+  },
+  {
+   "condition": "DS self-eval r30",
+   "archive": "mm_epc_ds_selfeval_r30.json",
+   "n": 10,
+   "full_archive_cv": 0.1961,
+   "cv5_subsample": {
+    "min": 0.0657,
+    "median": 0.1968,
+    "max": 0.2859,
+    "n_nondegenerate_subsets": 252,
+    "n_all_zero_subsets": 0
+   }
+  }
+ ]
+}

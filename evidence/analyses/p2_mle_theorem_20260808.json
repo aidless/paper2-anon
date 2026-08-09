@@ -1,0 +1,282 @@
+{
+ "part_a_mle_closeness": {
+  "method": "Y_i = 1[gamma_i>0]; gamma_MLE = logit(mean(Y)); proxy = per-repetition mean of normalized-distance gamma",
+  "rows": [
+   {
+    "condition": "DS Self-Eval",
+    "n": 30,
+    "proxy_gamma_mean": 0.0332,
+    "p_positive_coupling": 0.0333,
+    "gamma_mle_logit": -3.3673
+   },
+   {
+    "condition": "DS x Qwen (qwen eval)",
+    "n": 30,
+    "proxy_gamma_mean": 0.1865,
+    "p_positive_coupling": 0.1667,
+    "gamma_mle_logit": -1.6094
+   },
+   {
+    "condition": "Qwen x DS (official A)",
+    "n": 5,
+    "proxy_gamma_mean": 0.9866,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "DS eval / Qwen exec (official B)",
+    "n": 5,
+    "proxy_gamma_mean": 0.8929,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "GPT4o eval / DS exec len500 (official C)",
+    "n": 5,
+    "proxy_gamma_mean": 0.7949,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "GPT4o eval / Qwen exec (official D)",
+    "n": 5,
+    "proxy_gamma_mean": 0.7238,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "Ablation max",
+    "n": 10,
+    "proxy_gamma_mean": 1.0384,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "Ablation no-s0",
+    "n": 5,
+    "proxy_gamma_mean": 0.979,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "Qwen37",
+    "n": 8,
+    "proxy_gamma_mean": 1.0591,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "GPT4o replication (OLD)",
+    "n": 8,
+    "proxy_gamma_mean": 1.1763,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   },
+   {
+    "condition": "DS self-eval r30",
+    "n": 10,
+    "proxy_gamma_mean": 0.936,
+    "p_positive_coupling": 1.0,
+    "gamma_mle_logit": null
+   }
+  ],
+  "summary": {
+   "n_conditions": 2,
+   "pearson_proxy_vs_mle": 1.0
+  }
+ },
+ "part_b_theorem_coverage": {
+  "method": "Y ~ Bernoulli(sigmoid(gamma)); gamma_hat = logit sample proportion; CV over 5000 simulations vs Proposition lower bound 1/(gamma sqrt(N s(1-s)))",
+  "rows": [
+   {
+    "gamma": 0.05,
+    "s": 0.5125,
+    "N": 5,
+    "lower_bound": 17.8941,
+    "empirical_cv_logit_mle": 48.9326,
+    "bound_holds": true,
+    "n_valid_sims": 4704
+   },
+   {
+    "gamma": 0.05,
+    "s": 0.5125,
+    "N": 10,
+    "lower_bound": 12.6531,
+    "empirical_cv_logit_mle": 14.8927,
+    "bound_holds": true,
+    "n_valid_sims": 4985
+   },
+   {
+    "gamma": 0.05,
+    "s": 0.5125,
+    "N": 30,
+    "lower_bound": 7.3052,
+    "empirical_cv_logit_mle": 6.7943,
+    "bound_holds": false,
+    "n_valid_sims": 5000
+   },
+   {
+    "gamma": 0.1,
+    "s": 0.525,
+    "N": 5,
+    "lower_bound": 8.9555,
+    "empirical_cv_logit_mle": 9.7633,
+    "bound_holds": true,
+    "n_valid_sims": 4702
+   },
+   {
+    "gamma": 0.1,
+    "s": 0.525,
+    "N": 10,
+    "lower_bound": 6.3325,
+    "empirical_cv_logit_mle": 6.0151,
+    "bound_holds": false,
+    "n_valid_sims": 4994
+   },
+   {
+    "gamma": 0.1,
+    "s": 0.525,
+    "N": 30,
+    "lower_bound": 3.656,
+    "empirical_cv_logit_mle": 3.7284,
+    "bound_holds": true,
+    "n_valid_sims": 5000
+   },
+   {
+    "gamma": 0.25,
+    "s": 0.5622,
+    "N": 5,
+    "lower_bound": 3.6057,
+    "empirical_cv_logit_mle": 4.2265,
+    "bound_holds": true,
+    "n_valid_sims": 4627
+   },
+   {
+    "gamma": 0.25,
+    "s": 0.5622,
+    "N": 10,
+    "lower_bound": 2.5496,
+    "empirical_cv_logit_mle": 2.4224,
+    "bound_holds": false,
+    "n_valid_sims": 4977
+   },
+   {
+    "gamma": 0.25,
+    "s": 0.5622,
+    "N": 30,
+    "lower_bound": 1.472,
+    "empirical_cv_logit_mle": 1.4859,
+    "bound_holds": true,
+    "n_valid_sims": 5000
+   },
+   {
+    "gamma": 0.5,
+    "s": 0.6225,
+    "N": 5,
+    "lower_bound": 1.845,
+    "empirical_cv_logit_mle": 2.0829,
+    "bound_holds": true,
+    "n_valid_sims": 4479
+   },
+   {
+    "gamma": 0.5,
+    "s": 0.6225,
+    "N": 10,
+    "lower_bound": 1.3046,
+    "empirical_cv_logit_mle": 1.3156,
+    "bound_holds": true,
+    "n_valid_sims": 4951
+   },
+   {
+    "gamma": 0.5,
+    "s": 0.6225,
+    "N": 30,
+    "lower_bound": 0.7532,
+    "empirical_cv_logit_mle": 0.7599,
+    "bound_holds": true,
+    "n_valid_sims": 5000
+   },
+   {
+    "gamma": 1.0,
+    "s": 0.7311,
+    "N": 5,
+    "lower_bound": 1.0086,
+    "empirical_cv_logit_mle": 1.007,
+    "bound_holds": false,
+    "n_valid_sims": 3941
+   },
+   {
+    "gamma": 1.0,
+    "s": 0.7311,
+    "N": 10,
+    "lower_bound": 0.7132,
+    "empirical_cv_logit_mle": 0.6829,
+    "bound_holds": false,
+    "n_valid_sims": 4806
+   },
+   {
+    "gamma": 1.0,
+    "s": 0.7311,
+    "N": 30,
+    "lower_bound": 0.4118,
+    "empirical_cv_logit_mle": 0.4329,
+    "bound_holds": true,
+    "n_valid_sims": 5000
+   },
+   {
+    "gamma": 2.0,
+    "s": 0.8808,
+    "N": 5,
+    "lower_bound": 0.6901,
+    "empirical_cv_logit_mle": 0.4261,
+    "bound_holds": false,
+    "n_valid_sims": 2374
+   },
+   {
+    "gamma": 2.0,
+    "s": 0.8808,
+    "N": 10,
+    "lower_bound": 0.488,
+    "empirical_cv_logit_mle": 0.3259,
+    "bound_holds": false,
+    "n_valid_sims": 3607
+   },
+   {
+    "gamma": 2.0,
+    "s": 0.8808,
+    "N": 30,
+    "lower_bound": 0.2817,
+    "empirical_cv_logit_mle": 0.2857,
+    "bound_holds": true,
+    "n_valid_sims": 4870
+   },
+   {
+    "gamma": 3.0,
+    "s": 0.9526,
+    "N": 5,
+    "lower_bound": 0.7014,
+    "empirical_cv_logit_mle": 0.2378,
+    "bound_holds": false,
+    "n_valid_sims": 1074
+   },
+   {
+    "gamma": 3.0,
+    "s": 0.9526,
+    "N": 10,
+    "lower_bound": 0.4959,
+    "empirical_cv_logit_mle": 0.1796,
+    "bound_holds": false,
+    "n_valid_sims": 1947
+   },
+   {
+    "gamma": 3.0,
+    "s": 0.9526,
+    "N": 30,
+    "lower_bound": 0.2863,
+    "empirical_cv_logit_mle": 0.1861,
+    "bound_holds": false,
+    "n_valid_sims": 3827
+   }
+  ]
+ }
+}
