@@ -19,7 +19,7 @@ from itertools import combinations
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(os.path.dirname(HERE))
 OUT = os.path.join(BASE, "analyses", "p2_cv_sensitivity_20260808.json")
-EXP = r"F:\Research\experiments"
+EXP = r"<ARCHIVE_ROOT>\experiments"
 
 FILES = {
     "DS Self-Eval": "mm_epc_multi_seed_ds_final.json",

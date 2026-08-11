@@ -1,4 +1,4 @@
-﻿% ============================================================
+% ============================================================
 % JMLR Submission —Consolidated Paper 2
 % Title: The Impossibility Triangle of LLM Evaluation:
 %   A Formal Characterization of the Bias-Reliability-Coupling Tradeoff
@@ -190,7 +190,7 @@ We apply family-wise Bonferroni correction to control the family-wise error rate
 \end{itemize}
 The three multi-test families used in the empirical sections are:
 \begin{itemize}[leftmargin=*,nosep]
- \item $\gamma$--$H$ family ($k = 2$, $\alpha' = 0.025$): body 5-row $r = -0.989$; the abstract 11-LLM $r = -0.868$ is a source-study value that cannot be recomputed locally because the archive does not persist per-repetition $H$.
+ \item $\gamma$--$H$ family ($k = 2$, $\alpha' = 0.025$): body 5-row $r = -0.9977$ ($p = 0.0001$); the abstract 11-LLM $r = -0.868$ is a source-study value that cannot be recomputed locally because the archive does not persist per-repetition $H$.
  \item Chatbot Arena correlation family ($k = 2$, $\alpha' = 0.025$): entropy--decisiveness $r(H, \text{dec}) = -0.895$; CV--decisiveness $r(\mathrm{CV}, \text{dec}) = -0.075$.
  \item Convergence-dynamics family ($k = 2$, $\alpha' = 0.025$): half-life--$\alpha_{\text{eval}}$ $r = 0.76$; $\Delta H$--$\alpha_{\text{eval}}$ $r = 0.95$.
 \end{itemize}
@@ -220,7 +220,7 @@ Ablation max & Mixed & 1.038 & 0.913 & 0.157 & 0.148 & High-$\gamma$ \\
 \end{tabular}
 \end{table}
 
-For the five reproduced rows, the Pearson correlation is $r=-0.989$; with $n=5$, this estimate is highly sensitive to individual rows and is reported descriptively. A leave-one-condition-out interval and robust/permutation correlations require the missing condition-level data. The smallest observed product in the five-row table is $0.080$ (DS Self-Eval: $0.033 \times 0.999 \times 2.42$); that fact does not identify the entropy floor or validate Proposition~\ref{thm:impossibility} because the empirical $\gamma$ estimator does not follow the stipulated Bernoulli likelihood.
+For the five reproduced rows, the Pearson correlation is $r=-0.9977$ ($p = 0.0001$), with leave-one-condition-out values ranging $[-0.9997, -0.9963]$; with $n=5$, this estimate is highly sensitive to individual rows and is reported descriptively, and robust/permutation correlations require the missing condition-level data. This five-row set (DS Self-Eval, DS$\\times$Qwen, Qwen$\\times$DS, Ablation mid, Ablation max) is a different subset of the 11-condition survey than the companion paper's landscape subset ($r=-0.989$, $p=0.0014$); both are reported with their respective condition sets. The smallest observed product in the five-row table is $0.080$ (DS Self-Eval: $0.033 \times 0.999 \times 2.42$); that fact does not identify the entropy floor or validate Proposition~\ref{thm:impossibility} because the empirical $\gamma$ estimator does not follow the stipulated Bernoulli likelihood.
 
 \noindent\textbf{Archive-based eleven-condition reconstruction.} Using the persisted per-repetition archives, we reconstruct all eleven conditions with a single estimator (per-repetition mean $\gamma$; $\mathrm{CV}$ over the full archive; five-seed subsample range): Table~\ref{tab:recon}. The empty favorable region $\{\gamma < 0.2, \mathrm{CV} < 0.3\}$ remains empty on the reconstruction: the two low-$\gamma$ rows (DS Self-Eval $0.033$, DS $\times$ Qwen $0.187$) have full-archive $\mathrm{CV} \geq 2.3$, far above any reasonable $\mathrm{CV}$ cut.
 
@@ -379,7 +379,7 @@ The impossibility triangle has implications for the safety of LLM-based evaluati
 
 \section*{Reproducibility}
 
-All experiments use official API endpoints with fixed model versions. The standardized protocol, reference snapshot, and analysis code are released under the MIT License at \texttt{an anonymous repository available at acceptance}. The release contains:
+All experiments use official API endpoints with fixed model versions. The standardized protocol, reference snapshot, and analysis code are released under the MIT License at \texttt{https://anonymous.4open.science/r/paper2-anon-638E/}. The release contains:
 \begin{itemize}[leftmargin=*,nosep]
   \item \texttt{analysis/impossibility\_triangle.py}, which recomputes the $\gamma H\mathrm{CV}$ product for the 11 evaluator--agent conditions and classifies each condition using Table~\ref{tab:frontier};
   \item \texttt{analysis/ttrl\_simulator.py}, a deterministic TTRL simulator with $K{=}11$ strategies and configurable $\alpha_{\text{eval}}$;
