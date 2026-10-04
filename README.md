@@ -1,4 +1,5 @@
 # A Conditional Coupling--Diversity--Precision Bound for TTRL-Based LLM Evaluation
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  [![Data](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE)
 
 Anonymous artifact bundle (double-blind review).
 
@@ -11,3 +12,13 @@ Anonymous artifact bundle (double-blind review).
 - Manuscript: compile `source/main.tex` with TeX Live (the bundle includes the TMLR style files).
 
 _This repository is anonymized for review; author identity will be restored at camera-ready._
+
+## License
+
+Code is MIT-licensed ([LICENSE](LICENSE)). Paper 2 releases the analyses and evidence files under `evidence/` under
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+
+GitHub's license detector reports this repository as `NOASSERTION` because it reads
+a single SPDX id per repository and this one carries two. The split is deliberate:
+the code stays permissively licensed so it can be reused, and the research material
+stays attributable so a citation is required.
