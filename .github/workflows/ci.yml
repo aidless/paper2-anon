@@ -70,3 +70,76 @@ jobs:
             echo "::warning::are not tracked in this repository, so it is not run in CI."
           fi
           echo "OK (advisory only)"
+
+  mutation-control:
+    name: The evidence gates can fail
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Break the verification script and the JSON, and require non-zero twice
+        # Two independent gates here: py_compile on the verification script, and a
+        # JSON parse over evidence/. The JSON parser falls back to GBK for non-UTF-8
+        # bytes, so a plain ASCII corruption still has to be caught by json.loads.
+        run: |
+          set -uo pipefail
+          script=evidence/scripts/verify_p2_cv_sensitivity_20260808.py
+          victim=$(ls evidence/*.json evidence/**/*.json 2>/dev/null | head -1)
+          if [ -z "$victim" ]; then
+            echo "no evidence JSON to corrupt"
+            exit 1
+          fi
+          echo "--- baseline ---"
+          # Both checks must be chained explicitly. `set -e` is off here (only -u and
+          # pipefail are set), so a failed first check followed by a successful second
+          # one used to print "baseline passed" anyway.
+          if ! python -m py_compile "$script"; then
+            echo "FAIL: py_compile is already red before any change"
+            exit 1
+          fi
+          if ! python - "$victim" <<'PYX'
+          import json, pathlib, sys
+          p = pathlib.Path(sys.argv[1])
+          raw = p.read_bytes()
+          try:
+              json.loads(raw.decode("utf-8"))
+          except UnicodeDecodeError:
+              json.loads(raw.decode("gbk", errors="replace"))
+          PYX
+          then
+            echo "FAIL: $victim does not parse before any change"
+            exit 1
+          fi
+          echo "baseline passed"
+
+          echo "--- corrupting $script ---"
+          cp "$script" /tmp/script.bak
+          printf '\ndef __mutation_control__(:\n' >> "$script"
+          if python -m py_compile "$script" 2>/dev/null; then
+            echo "FAIL: py_compile accepted a script with a syntax error"
+            exit 1
+          fi
+          cp /tmp/script.bak "$script"
+          echo "py_compile rejected it"
+
+          echo "--- corrupting $victim ---"
+          cp "$victim" /tmp/victim.bak
+          printf 'not json at all {{{' >> "$victim"
+          if python - "$victim" <<'PYX'
+          import json, pathlib, sys
+          p = pathlib.Path(sys.argv[1])
+          raw = p.read_bytes()
+          try:
+              text = raw.decode("utf-8")
+          except UnicodeDecodeError:
+              text = raw.decode("gbk", errors="replace")
+          json.loads(text)
+          PYX
+          then
+            echo "FAIL: the JSON gate accepted a file that is not JSON"
+            exit 1
+          fi
+          cp /tmp/victim.bak "$victim"
+          echo "OK: both gates rejected their corruption"
